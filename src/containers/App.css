@@ -1,0 +1,28 @@
+#main-app {
+  display: grid;
+  place-items: center;
+  /* background-color: rgb(255, 255, 255); */
+  width: 100%;
+  height: 100vh;
+}
+
+.button-group {
+  display: flex;
+  margin-top: 25px;
+}
+
+.new-quote {
+  margin-left: auto;
+}
+
+.creator-name {
+  margin-top: 20px;
+}
+.creator-name,
+.creator-name a {
+  text-align: center;
+  color: white;
+}
+.creator-name a {
+  text-decoration: none;
+}
