@@ -33,12 +33,12 @@ class App extends Component {
     return (
       <Router>
         <div className="container">
-          <Route path="/" component={NavBar} />
-          <Route path="/">
+          <Route path="/recipe-app" component={NavBar} />
+          <Route path="/recipe-app">
             <ConfirmModal />
           </Route>
-          <Route path="/" component={ResultRecipe} />
-          <Route path="/:id" component={RecipePage} />
+          <Route path="/recipe-app" component={ResultRecipe} />
+          <Route path="/recipe-app/:id" component={RecipePage} />
         </div>
       </Router>
     );

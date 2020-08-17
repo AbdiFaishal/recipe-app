@@ -15,14 +15,14 @@ const Recipe = ({ image_url, publisher, recipe_id, title }) => {
     removeClass();
 
     document
-      .querySelector(`.results__link[href="/${recipe_id}"]`)
+      .querySelector(`.results__link[href="/recipe-app/${recipe_id}"]`)
       .classList.add("result__link--active");
   };
 
   return (
     <li>
       <Link
-        to={`/${recipe_id}`}
+        to={`/recipe-app/${recipe_id}`}
         onClick={(e) => handleRecipeDetail(e, recipe_id)}
         className="results__link"
         // href={`#${recipe_id}`}

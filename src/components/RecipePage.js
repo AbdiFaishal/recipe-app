@@ -19,12 +19,7 @@ const RecipePage = () => {
     return (
       <div className="recipe">
         <RecipeFig recipeDetail={recipeDetail} />
-        <RecipeDetails
-          // handleLike={handleLike}
-          // likedRecipes={likedRecipes}
-          // isLiked={isLiked}
-          recipeDetail={recipeDetail}
-        />
+        <RecipeDetails recipeDetail={recipeDetail} />
         <RecipeIngredient recipeDetail={recipeDetail} />
         <RecipeDirections recipeDetail={recipeDetail} />
       </div>

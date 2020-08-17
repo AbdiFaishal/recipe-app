@@ -20,14 +20,14 @@ const Like = ({ id, title, author, img }) => {
 
     // Like active class on click
     document
-      .querySelector(`.likes__link[href="/${id}"]`)
+      .querySelector(`.likes__link[href="/recipe-app/${id}"]`)
       .classList.add("result__link--active");
   };
 
   return (
     <li>
       <Link
-        to={`/${id}`}
+        to={`/recipe-app/${id}`}
         onClick={() => handleClick(id)}
         className="likes__link"
       >
