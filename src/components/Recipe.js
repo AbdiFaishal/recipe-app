@@ -3,43 +3,19 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getRecipeDetail } from "../actions";
 import useLimitTitle from "./hooks/useLimitTitle";
-// Function for converting string (condition: title max character are 18)
-// export const limitRecipeTitle = (title, limit = 18) => {
-//   const newTitle = [];
-//   if (title.length > limit) {
-//     title.split(" ").reduce((acc, cur) => {
-//       if (acc + cur.length <= limit) {
-//         newTitle.push(cur);
-//       }
-//       return acc + cur.length;
-//     }, 0);
+import useRemoveClass from "./hooks/useRemoveClass";
 
-//     // return the result
-//     return `${newTitle.join(" ")}...`;
-//   } else {
-//     return title;
-//   }
-// };
-
-const Recipe = ({
-  image_url,
-  publisher,
-  recipe_id,
-  title,
-  // handleRecipeDetail,
-}) => {
+const Recipe = ({ image_url, publisher, recipe_id, title }) => {
   const [titleConvert] = useLimitTitle();
   const dispatch = useDispatch();
+  const removeClass = useRemoveClass();
 
-  const handleRecipeDetail = (recipe_id) => {
+  const handleRecipeDetail = (e, recipe_id) => {
     dispatch(getRecipeDetail(recipe_id));
+    removeClass();
 
     document
-      .querySelectorAll(".results__link")
-      .forEach((el) => el.classList.remove("result__link--active"));
-
-    document
-      .querySelector(`a[href="/${recipe_id}"]`)
+      .querySelector(`.results__link[href="/${recipe_id}"]`)
       .classList.add("result__link--active");
   };
 
@@ -47,7 +23,7 @@ const Recipe = ({
     <li>
       <Link
         to={`/${recipe_id}`}
-        onClick={() => handleRecipeDetail(recipe_id)}
+        onClick={(e) => handleRecipeDetail(e, recipe_id)}
         className="results__link"
         // href={`#${recipe_id}`}
       >

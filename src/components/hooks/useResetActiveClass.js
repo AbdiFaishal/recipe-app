@@ -1,5 +1,6 @@
 const useResetActiveClass = () => {
-  const removeResultsClass = () => {
+  const removePaginationClass = () => {
+    console.log("removePaginationClass");
     // reset pagination active class
     document
       .querySelectorAll(".results__pages li")
@@ -14,7 +15,7 @@ const useResetActiveClass = () => {
       .forEach((el) => el.classList.remove("result__link--active"));
   };
 
-  return [removeResultsClass];
+  return [removePaginationClass];
 };
 
 export default useResetActiveClass;

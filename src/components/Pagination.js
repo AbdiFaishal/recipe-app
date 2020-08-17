@@ -15,11 +15,7 @@ const Pagination = () => {
     (state) => state.handlePagination.listPerPage
   );
   const recipes = useSelector((state) => state.getRecipes.recipes);
-  const recipeDetail = useSelector(
-    (state) => state.getRecipeDetail.recipeDetail
-  );
 
-  console.log(recipeDetail);
   const totalRecipes = recipes.length;
 
   calculatePage(totalRecipes, listPerPage);
