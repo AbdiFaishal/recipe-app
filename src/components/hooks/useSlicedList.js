@@ -12,9 +12,6 @@ const useSlicedList = () => {
     (state) => state.handlePagination.listPerPage
   );
 
-  console.log("currentPage", currentPage);
-  console.log("listPerPage", listPerPage);
-
   useEffect(() => {
     const indexOfLastPost = currentPage * listPerPage;
     const indexOfFirstPost = indexOfLastPost - listPerPage;

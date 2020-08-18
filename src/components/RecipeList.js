@@ -3,7 +3,7 @@ import Recipe from "./Recipe";
 import LoadingSpinner from "./LoadingSpinner";
 import { useSelector } from "react-redux";
 import useSlicedList from "./hooks/useSlicedList";
-import sad from "../img/icons/sad.png";
+import ResultNotFound from "./ResultNotFound";
 
 const RecipeList = () => {
   const [slicedList] = useSlicedList();
@@ -17,12 +17,7 @@ const RecipeList = () => {
   if (loading) {
     return <LoadingSpinner />;
   } else if (recipeAPIResult === 0) {
-    return (
-      <div className="result__none">
-        <img className="sad-face" src={sad} alt="sad face" />
-        <p className="text">No Result Found</p>
-      </div>
-    );
+    return <ResultNotFound />;
   }
 
   if (errorMessage !== "") {
