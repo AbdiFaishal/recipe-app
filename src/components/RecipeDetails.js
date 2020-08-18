@@ -5,12 +5,12 @@ import { addLike, deleteLike } from "../redux/actions";
 import useLiked from "./hooks/useLiked";
 import useCalcTime from "./hooks/useCalcTime";
 
-const RecipeDetails = (props) => {
+const RecipeDetails = ({ recipeDetail }) => {
   const params = useParams().id;
   const dispatch = useDispatch();
-  const recipeDetail = useSelector(
-    (state) => state.getRecipeDetail.recipeDetail
-  );
+  // const recipeDetail = useSelector(
+  //   (state) => state.getRecipeDetail.recipeDetail
+  // );
   const likedRecipes = useSelector((state) => state.handleLikes.likedRecipes);
 
   const [isLiked, deleteLiked] = useLiked();
@@ -19,7 +19,7 @@ const RecipeDetails = (props) => {
 
   useEffect(() => {
     calcTime(ingredients);
-  }, [ingredients, calcTime]);
+  }, [recipeDetail, calcTime, ingredients]);
 
   const handleLike = (params) => {
     const currentID = params;

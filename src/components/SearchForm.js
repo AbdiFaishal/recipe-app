@@ -40,7 +40,7 @@ const SearchForm = () => {
         value={searchField}
         type="text"
         className="search__field"
-        placeholder="Search over 1.000 recipes..."
+        placeholder="Search over 1.000.000 recipes..."
         onChange={onChangeSearch}
       />
       {inputValidation}

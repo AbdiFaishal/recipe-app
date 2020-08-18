@@ -10,23 +10,22 @@ const RecipePage = () => {
   const recipeDetail = useSelector(
     (state) => state.getRecipeDetail.recipeDetail
   );
+
   const loadingDetail = useSelector((state) => state.getRecipeDetail.isPending);
 
   if (loadingDetail) {
     return <LoadingSpinner />;
   }
-  if (recipeDetail.recipe_id) {
-    return (
+  return (
+    recipeDetail.recipe_id && (
       <div className="recipe">
         <RecipeFig recipeDetail={recipeDetail} />
         <RecipeDetails recipeDetail={recipeDetail} />
         <RecipeIngredient recipeDetail={recipeDetail} />
         <RecipeDirections recipeDetail={recipeDetail} />
       </div>
-    );
-  } else {
-    return null;
-  }
+    )
+  );
 };
 
 export default RecipePage;

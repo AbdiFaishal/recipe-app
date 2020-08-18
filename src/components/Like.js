@@ -10,21 +10,21 @@ const Like = ({ id, title, author, img }) => {
   const [titleConvert] = useLimitTitle();
   const removeClass = useRemoveClass();
 
-  const handleClick = (id) => {
+  const handleClick = (e, id) => {
     dispatch(getRecipeDetail(id));
     removeClass();
 
     // Like active class on click
     document
-      .querySelector(`.likes__link[href="/recipe-app/${id}"]`)
+      .querySelector(`.likes__link[href="#/${id}"]`)
       .classList.add("result__link--active");
   };
 
   return (
     <li>
       <Link
-        to={`/recipe-app/${id}`}
-        onClick={() => handleClick(id)}
+        to={`/${id}`}
+        onClick={(e) => handleClick(e, id)}
         className="likes__link"
       >
         <figure className="likes__fig">

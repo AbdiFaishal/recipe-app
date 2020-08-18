@@ -6,12 +6,15 @@ import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux/store";
+import { HashRouter } from "react-router-dom";
 
 ReactDOM.render(
   <Provider store={store}>
-    <PersistGate persistor={persistor}>
-      <App />
-    </PersistGate>
+    <HashRouter basename="/">
+      <PersistGate persistor={persistor}>
+        <App />
+      </PersistGate>
+    </HashRouter>
   </Provider>,
   document.getElementById("root")
 );
