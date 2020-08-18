@@ -14,10 +14,6 @@ const Like = ({ id, title, author, img }) => {
     dispatch(getRecipeDetail(id));
     removeClass();
 
-    // Pagination active class on first render
-    document.querySelectorAll(".results__pages li")[0].classList.add("active");
-    document.querySelectorAll(".results__pages a")[0].classList.add("active");
-
     // Like active class on click
     document
       .querySelector(`.likes__link[href="/recipe-app/${id}"]`)

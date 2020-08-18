@@ -34,8 +34,6 @@ const Pagination = () => {
   useEffect(() => {
     // Apply pagination active class on first render
     if (recipes.length > 0) {
-      // document.querySelector(".results__pages .list-1").classList.add("active");
-      // document.querySelector(".results__pages .link-1").classList.add("active");
       document
         .querySelectorAll(".results__pages li")[0]
         .classList.add("active");
