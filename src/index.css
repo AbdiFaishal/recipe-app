@@ -255,8 +255,12 @@ a {
 
 .result__none {
   text-align: center;
-  color: #f48982;
+  color: #9b9b9b;
   font-size: 2rem;
+}
+
+.result__none .sad-face {
+  width: 75px;
 }
 
 .result__list,
