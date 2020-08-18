@@ -5,7 +5,7 @@ import {
   getRecipes,
   resetSearchField,
   handlePage,
-} from "./../actions/index";
+} from "../redux/actions/index";
 import { useSelector, useDispatch } from "react-redux";
 
 const SearchForm = () => {
@@ -40,7 +40,7 @@ const SearchForm = () => {
         value={searchField}
         type="text"
         className="search__field"
-        placeholder="Search over your favorites recipes..."
+        placeholder="Search over 1.000 recipes..."
         onChange={onChangeSearch}
       />
       {inputValidation}

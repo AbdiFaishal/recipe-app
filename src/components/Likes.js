@@ -1,7 +1,7 @@
 import React from "react";
 import Like from "./Like";
 import { useSelector, useDispatch } from "react-redux";
-import { handleModal } from "./../actions/index";
+import { handleModal } from "../redux/actions/index";
 
 const Likes = () => {
   const dispatch = useDispatch();

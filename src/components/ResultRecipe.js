@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 const ResultRecipe = () => {
   const loading = useSelector((state) => state.getRecipes.isPending);
-
   return (
     <div className="results">
       <RecipeList />

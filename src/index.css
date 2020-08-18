@@ -92,6 +92,7 @@ a {
 .search:focus-within {
   transform: translateY(-2px);
   box-shadow: 0 0.7rem 3rem rgba(101, 90, 86, 0.08);
+  border: 1px solid #f5ad7d;
 }
 
 .search__field {
@@ -99,16 +100,19 @@ a {
   background: none;
   font-family: inherit;
   font-size: 1.7rem;
-  color: inherit;
+  /* color: inherit; */
+  color: #5c5c5c;
   width: 30rem;
 }
 
 .search__field:focus {
   outline: none;
+  border: none;
 }
 
 .search__field::placeholder {
-  color: #dad0cc;
+  color: #d4d4d4;
+  font-size: 1.5rem;
 }
 
 .btn,
@@ -256,11 +260,25 @@ a {
 .result__none {
   text-align: center;
   color: #9b9b9b;
-  font-size: 1.8rem;
+  font-size: 1.75rem;
 }
 
 .result__none .sad-face {
-  width: 75px;
+  width: 70px;
+}
+
+.result__none .tips {
+  font-size: 1.3rem;
+  color: #fd854d;
+  /* font-style: italic; */
+}
+
+.result__none .keyword {
+  font-weight: bolder;
+}
+
+.result__none .tips-content {
+  color: #9b9b9b;
 }
 
 .result__list,
@@ -722,13 +740,25 @@ a {
   color: #f2efee;
   border-radius: 3px;
   font-weight: 700;
+  transition: all 0.3s;
 }
 
-.btn-group-modal .btn-cancel {
+.btn-group-modal .btn-cancel,
+.btn-group-modal .btn-ok {
   background-color: #e0e1e2;
   color: rgba(0, 0, 0, 0.6);
 }
-.btn-group-modal .btn-ok {
+
+/* .btn-group-modal .btn-ok {
   background-color: #fd9c83;
   color: #fff;
+} */
+
+.btn-cancel:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ececec;
+}
+.btn-ok:hover {
+  background-color: #fd9c83;
+  color: rgba(255, 255, 255, 0.9);
 }

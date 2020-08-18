@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { addLike, deleteLike } from "../actions";
+import { addLike, deleteLike } from "../redux/actions";
 import useLiked from "./hooks/useLiked";
 import useCalcTime from "./hooks/useCalcTime";
 

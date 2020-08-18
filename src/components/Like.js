@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { getRecipeDetail } from "../actions";
+import { getRecipeDetail } from "../redux/actions";
 import useLimitTitle from "./hooks/useLimitTitle";
 import useRemoveClass from "./hooks/useRemoveClass";
 

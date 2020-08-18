@@ -1,5 +1,5 @@
 import axios from "axios";
-import { proxy } from "./../config";
+import { proxy } from "../../config";
 
 import {
   CHANGE_SEARCH_FIELD,
@@ -16,7 +16,7 @@ import {
   CHANGE_PAGINATION_PAGE,
   HANDLE_MODAL,
   HANDLE_CONFIRM,
-} from "./../constants/action-types";
+} from "../constants/action-types";
 
 // search input form
 export const setSearchField = (text) => ({

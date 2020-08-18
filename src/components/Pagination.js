@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { handlePage } from "../actions";
+import { handlePage } from "../redux/actions";
 import useResetActiveClass from "./hooks/useResetActiveClass";
 import usePageNumber from "./hooks/usePageNumber";
 
