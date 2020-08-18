@@ -4,6 +4,7 @@ import {
   isInputEmpty,
   getRecipes,
   resetSearchField,
+  handlePage,
 } from "./../actions/index";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -25,6 +26,7 @@ const SearchForm = () => {
       dispatch(getRecipes(searchField));
       dispatch(resetSearchField());
       dispatch(isInputEmpty(false));
+      dispatch(handlePage(1));
     }
   };
 

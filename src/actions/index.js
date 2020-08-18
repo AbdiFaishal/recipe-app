@@ -49,14 +49,6 @@ export const getRecipes = (query) => async (dispatch) => {
   } catch (error) {
     dispatch({ type: FETCH_RECIPES_FAILED, payload: error.message });
   }
-  // axios
-  //   .get(`${proxy}https://recipesapi.herokuapp.com/api/searchh?q=${query}`)
-  //   .then((res) => {
-  //     dispatch({ type: FETCH_RECIPES_SUCCESS, payload: res.data.recipes });
-  //   })
-  //   .catch((error) =>
-  //     dispatch({ type: FETCH_RECIPES_FAILED, payload: error.message })
-  //   );
 };
 
 // fetching recipe detail from API
@@ -70,12 +62,6 @@ export const getRecipeDetail = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({ type: FETCH_DETAIL_FAILED, payload: error });
   }
-  //   axios
-  //     .get(`${proxy}https://recipesapi.herokuapp.com/api/get?rId=${id}`)
-  //     .then((res) => {
-  //       dispatch({ type: FETCH_DETAIL_SUCCESS, payload: res.data.recipe });
-  //     })
-  //     .catch((error) => dispatch({ type: FETCH_DETAIL_FAILED, payload: error }));
 };
 
 // Handle likes recipe

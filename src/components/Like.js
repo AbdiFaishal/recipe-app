@@ -15,8 +15,8 @@ const Like = ({ id, title, author, img }) => {
     removeClass();
 
     // Pagination active class on first render
-    document.querySelector(".results__pages .list-1").classList.add("active");
-    document.querySelector(".results__pages .link-1").classList.add("active");
+    document.querySelectorAll(".results__pages li")[0].classList.add("active");
+    document.querySelectorAll(".results__pages a")[0].classList.add("active");
 
     // Like active class on click
     document

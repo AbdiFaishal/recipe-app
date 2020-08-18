@@ -34,8 +34,12 @@ const Pagination = () => {
   useEffect(() => {
     // Apply pagination active class on first render
     if (recipes.length > 0) {
-      document.querySelector(".results__pages .list-1").classList.add("active");
-      document.querySelector(".results__pages .link-1").classList.add("active");
+      // document.querySelector(".results__pages .list-1").classList.add("active");
+      // document.querySelector(".results__pages .link-1").classList.add("active");
+      document
+        .querySelectorAll(".results__pages li")[0]
+        .classList.add("active");
+      document.querySelectorAll(".results__pages a")[0].classList.add("active");
     }
   }, [recipes]);
 
@@ -43,13 +47,8 @@ const Pagination = () => {
     <div className="results__pages">
       <ul>
         {pageNumber.map((number) => (
-          <li className={`list-${number}`} key={number}>
-            <Link
-              to={currentPath}
-              className={`link-${number}`}
-              // onClick={(e) => paginate(number, e)}
-              onClick={(e) => handlePaginate(number, e)}
-            >
+          <li key={number}>
+            <Link to={currentPath} onClick={(e) => handlePaginate(number, e)}>
               {number}
             </Link>
           </li>

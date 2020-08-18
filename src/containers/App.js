@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 // font-awesome offline
 import NavBar from "../components/NavBar";
@@ -8,41 +8,39 @@ import RecipePage from "../components/RecipePage";
 import ConfirmModal from "./../components/ConfirmModal";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-class App extends Component {
-  componentDidMount() {
-    this.readStorage();
-  }
+const App = () => {
+  // componentDidMount() {
+  //   this.readStorage();
+  // }
 
-  persistData = () => {
-    const { likedRecipes } = this.state;
-    localStorage.setItem("likedRecipes", JSON.stringify(likedRecipes));
-  };
+  // persistData = () => {
+  //   const { likedRecipes } = this.state;
+  //   localStorage.setItem("likedRecipes", JSON.stringify(likedRecipes));
+  // };
 
-  readStorage = () => {
-    const storage = JSON.parse(localStorage.getItem("likedRecipes"));
+  // readStorage = () => {
+  //   const storage = JSON.parse(localStorage.getItem("likedRecipes"));
 
-    //  Restore likes from the localStorage
-    if (storage) {
-      this.setState({
-        likedRecipes: storage,
-      });
-    }
-  };
+  //   //  Restore likes from the localStorage
+  //   if (storage) {
+  //     this.setState({
+  //       likedRecipes: storage,
+  //     });
+  //   }
+  // };
 
-  render() {
-    return (
-      <Router>
-        <div className="container">
-          <Route path="/recipe-app" component={NavBar} />
-          <Route path="/recipe-app">
-            <ConfirmModal />
-          </Route>
-          <Route path="/recipe-app" component={ResultRecipe} />
-          <Route path="/recipe-app/:id" component={RecipePage} />
-        </div>
-      </Router>
-    );
-  }
-}
+  return (
+    <Router>
+      <div className="container">
+        <Route path="/recipe-app" component={NavBar} />
+        <Route path="/recipe-app">
+          <ConfirmModal />
+        </Route>
+        <Route path="/recipe-app" component={ResultRecipe} />
+        <Route path="/recipe-app/:id" component={RecipePage} />
+      </div>
+    </Router>
+  );
+};
 
 export default App;

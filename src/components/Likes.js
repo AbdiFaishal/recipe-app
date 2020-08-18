@@ -32,7 +32,7 @@ const Likes = () => {
             <p className="empty__favorite">Your have no favorite recipe</p>
           )}
         </ul>
-        {likedRecipes.length ? (
+        {likedRecipes.length > 0 && (
           <button
             onClick={() => dispatch(handleModal(true))}
             className="btn delete__likes"
@@ -40,7 +40,7 @@ const Likes = () => {
             <i className="fas fa-trash"></i>
             <span>Clear All</span>
           </button>
-        ) : null}
+        )}
       </div>
     </div>
   );

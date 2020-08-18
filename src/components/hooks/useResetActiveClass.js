@@ -1,6 +1,5 @@
 const useResetActiveClass = () => {
   const removePaginationClass = () => {
-    console.log("removePaginationClass");
     // reset pagination active class
     document
       .querySelectorAll(".results__pages li")
