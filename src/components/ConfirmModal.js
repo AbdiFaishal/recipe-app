@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { handleModal, handleConfirm } from "../redux/actions/index";
+import { handleModal, handleConfirm } from "./../actions/index";
 
 // modalOpen
 // {handleModal, handleConfirm}
@@ -10,7 +10,8 @@ const ConfirmModal = () => {
 
   if (!modalOpen) return null;
   return (
-    <div className="modal">
+    <>
+      <div className="overlay"></div>
       <div className="confirm__modal">
         <div className="confirmation-text">
           <p>Are you sure?</p>
@@ -23,11 +24,11 @@ const ConfirmModal = () => {
             Cancel
           </button>
           <button className="btn-ok" onClick={() => dispatch(handleConfirm())}>
-            Yes
+            OK
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

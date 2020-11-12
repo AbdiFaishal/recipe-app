@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { proxy } from '../../config';
+import { proxy } from './../config';
 
 import {
   CHANGE_SEARCH_FIELD,
@@ -16,7 +16,7 @@ import {
   CHANGE_PAGINATION_PAGE,
   HANDLE_MODAL,
   HANDLE_CONFIRM,
-} from '../constants/action-types';
+} from './../constants/action-types';
 
 // search input form
 export const setSearchField = (text) => ({
@@ -45,13 +45,25 @@ export const getRecipes = (query) => async (dispatch) => {
     const res = await axios.get(
       `https://forkify-api.herokuapp.com/api/search?q=${query}`
     );
+    console.log('res: ', res.data);
     dispatch({
       type: FETCH_RECIPES_SUCCESS,
       payload: { data: res.data.recipes, count: res.data.count },
     });
-  } catch (error) {
-    dispatch({ type: FETCH_RECIPES_FAILED, payload: error.message });
+  } catch (err) {
+    dispatch({
+      type: FETCH_RECIPES_FAILED,
+      payload: err.response.data.error,
+    });
   }
+  // axios
+  //   .get(`${proxy}https://recipesapi.herokuapp.com/api/searchh?q=${query}`)
+  //   .then((res) => {
+  //     dispatch({ type: FETCH_RECIPES_SUCCESS, payload: res.data.recipes });
+  //   })
+  //   .catch((error) =>
+  //     dispatch({ type: FETCH_RECIPES_FAILED, payload: error.message })
+  //   );
 };
 
 // fetching recipe detail from API
@@ -68,6 +80,12 @@ export const getRecipeDetail = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({ type: FETCH_DETAIL_FAILED, payload: error });
   }
+  //   axios
+  //     .get(`${proxy}https://recipesapi.herokuapp.com/api/get?rId=${id}`)
+  //     .then((res) => {
+  //       dispatch({ type: FETCH_DETAIL_SUCCESS, payload: res.data.recipe });
+  //     })
+  //     .catch((error) => dispatch({ type: FETCH_DETAIL_FAILED, payload: error }));
 };
 
 // Handle likes recipe

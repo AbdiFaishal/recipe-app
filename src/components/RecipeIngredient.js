@@ -11,7 +11,7 @@ const RecipeIngredient = ({ recipeDetail }) => {
           <use href="img/icons.svg#icon-shopping-cart"></use>
         </svg> */}
         {/* <i className="fas fa-shopping-cart"></i> */}
-        <span>Add Review (coming soon)</span>
+        <span>Add Review</span>
       </button>
     </div>
   );

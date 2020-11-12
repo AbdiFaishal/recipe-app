@@ -13,10 +13,10 @@ import {
   CHANGE_PAGINATION_PAGE,
   HANDLE_MODAL,
   HANDLE_CONFIRM,
-} from "../constants/action-types";
+} from '../constants/action-types';
 
 const initialStateSearch = {
-  searchField: "",
+  searchField: '',
   emptyInput: false,
 };
 
@@ -31,7 +31,7 @@ export const searchField = (state = initialStateSearch, action) => {
     case RESET_SEARCH_FIELD:
       return {
         ...state,
-        searchField: "",
+        searchField: '',
       };
     case IS_INPUT_EMPTY:
       return {
@@ -47,7 +47,7 @@ const initialStateRecipes = {
   isPending: false,
   recipes: [],
   recipeAPIResult: null,
-  error: "",
+  error: '',
 };
 
 export const getRecipes = (state = initialStateRecipes, action) => {
@@ -63,11 +63,13 @@ export const getRecipes = (state = initialStateRecipes, action) => {
         recipes: action.payload.data,
         isPending: false,
         recipeAPIResult: action.payload.count,
-        error: "",
+        error: '',
       };
     case FETCH_RECIPES_FAILED:
       return {
         ...state,
+        recipes: [],
+        recipeAPIResult: null,
         error: action.payload,
         isPending: false,
       };
@@ -79,7 +81,7 @@ export const getRecipes = (state = initialStateRecipes, action) => {
 const initialStateRecipeDetail = {
   isPending: false,
   recipeDetail: {},
-  error: "",
+  error: '',
 };
 
 export const getRecipeDetail = (state = initialStateRecipeDetail, action) => {

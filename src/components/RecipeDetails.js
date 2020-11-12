@@ -1,31 +1,36 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { addLike, deleteLike } from "../redux/actions";
-import useLiked from "./hooks/useLiked";
-import useCalcTime from "./hooks/useCalcTime";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { addLike, deleteLike } from '../actions';
+import useLiked from './hooks/useLiked';
 
-const RecipeDetails = ({ recipeDetail }) => {
+// {handleLike, likedRecipes, isLiked, recipeDetail}
+
+const RecipeDetails = () => {
   const params = useParams().id;
   const dispatch = useDispatch();
-  // const recipeDetail = useSelector(
-  //   (state) => state.getRecipeDetail.recipeDetail
-  // );
+  const recipeDetail = useSelector(
+    (state) => state.getRecipeDetail.recipeDetail
+  );
   const likedRecipes = useSelector((state) => state.handleLikes.likedRecipes);
 
   const [isLiked, deleteLiked] = useLiked();
-  const [periods, calcTime] = useCalcTime();
-  const ingredients = recipeDetail.ingredients;
 
-  useEffect(() => {
-    calcTime(ingredients);
-  }, [recipeDetail, calcTime, ingredients]);
+  // const isLiked = (id, state) => {
+  //   return state.findIndex((el) => el.id === id) !== -1;
+  // };
+
+  // const deleteLiked = (id, target) => {
+  //   const index = target.findIndex((el) => el.id === id);
+  //   target.splice(index, 1);
+  // };
 
   const handleLike = (params) => {
     const currentID = params;
     let likes = [...likedRecipes];
 
-    // User has NOT yet liked the currect recipe
+    // User has NOT yet liked the currect recipe and add it
+    // !isLiked(currentID, likedRecipes)
     if (!isLiked(currentID, likedRecipes)) {
       const like = {
         id: recipeDetail.recipe_id,
@@ -35,11 +40,18 @@ const RecipeDetails = ({ recipeDetail }) => {
       };
       dispatch(addLike(like));
 
-      // User HAS liked the currect recipe
+      // User HAS liked the currect recipe and delete it
     } else {
       deleteLiked(params, likes);
       dispatch(deleteLike(likes));
     }
+  };
+
+  const calcTime = () => {
+    // Assuming that we need 15 min for each 3 ingredient
+    const numIng = recipeDetail.ingredients.length;
+    const periods = Math.ceil(numIng / 3);
+    return periods * 15;
   };
 
   return (
@@ -47,8 +59,7 @@ const RecipeDetails = ({ recipeDetail }) => {
       <div className="recipe__info">
         <i className="recipe__info-icon fa fa-stopwatch"></i>
         <span className="recipe__info-data recipe__info-data--minutes">
-          {/* {calcTime()} */}
-          {periods}
+          {calcTime()}
         </span>
         <span className="recipe__info-text"> minutes</span>
       </div>
@@ -64,7 +75,7 @@ const RecipeDetails = ({ recipeDetail }) => {
       <button onClick={() => handleLike(params)} className="recipe__love">
         <i
           className={
-            isLiked(params, likedRecipes) ? "fas fa-heart" : "far fa-heart"
+            isLiked(params, likedRecipes) ? 'fas fa-heart' : 'far fa-heart'
           }
         ></i>
         {/* <i className="fas fa-heart"></i> */}

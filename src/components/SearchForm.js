@@ -4,11 +4,10 @@ import {
   isInputEmpty,
   getRecipes,
   resetSearchField,
-  handlePage,
-} from "../redux/actions/index";
+} from "./../actions/index";
 import { useSelector, useDispatch } from "react-redux";
 
-const SearchForm = () => {
+const SearchForm = ({ onChange, inputValue, handleSearch }) => {
   const dispatch = useDispatch();
   const emptyInput = useSelector((state) => state.searchField.emptyInput);
   const searchField = useSelector((state) => state.searchField.searchField);
@@ -26,7 +25,6 @@ const SearchForm = () => {
       dispatch(getRecipes(searchField));
       dispatch(resetSearchField());
       dispatch(isInputEmpty(false));
-      dispatch(handlePage(1));
     }
   };
 
@@ -40,7 +38,7 @@ const SearchForm = () => {
         value={searchField}
         type="text"
         className="search__field"
-        placeholder="Search over 1.000.000 recipes..."
+        placeholder="Search over your favorites recipes..."
         onChange={onChangeSearch}
       />
       {inputValidation}

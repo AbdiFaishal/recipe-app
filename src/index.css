@@ -92,7 +92,6 @@ a {
 .search:focus-within {
   transform: translateY(-2px);
   box-shadow: 0 0.7rem 3rem rgba(101, 90, 86, 0.08);
-  border: 1px solid #f5ad7d;
 }
 
 .search__field {
@@ -100,19 +99,16 @@ a {
   background: none;
   font-family: inherit;
   font-size: 1.7rem;
-  /* color: inherit; */
-  color: #5c5c5c;
+  color: inherit;
   width: 30rem;
 }
 
 .search__field:focus {
   outline: none;
-  border: none;
 }
 
 .search__field::placeholder {
-  color: #d4d4d4;
-  font-size: 1.5rem;
+  color: #dad0cc;
 }
 
 .btn,
@@ -259,26 +255,8 @@ a {
 
 .result__none {
   text-align: center;
-  color: #9b9b9b;
-  font-size: 1.75rem;
-}
-
-.result__none .sad-face {
-  width: 70px;
-}
-
-.result__none .tips {
-  font-size: 1.3rem;
-  color: #fd854d;
-  /* font-style: italic; */
-}
-
-.result__none .keyword {
-  font-weight: bolder;
-}
-
-.result__none .tips-content {
-  color: #9b9b9b;
+  color: #f48982;
+  font-size: 2rem;
 }
 
 .result__list,
@@ -480,9 +458,8 @@ a {
 }
 
 .recipe__info-icon {
-  /* height: 2rem;
-  width: 2rem; */
-  padding-left: 2rem;
+  height: 2rem;
+  width: 2rem;
   fill: #f59a83;
   color: #f59a83;
   margin-right: 1rem;
@@ -689,24 +666,21 @@ a {
 }
 
 /* Confirmation Modal */
-.modal {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  /* right: 0;
-  bottom: 0; */
-  background-color: rgba(0, 0, 0, 0.6);
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 1000;
 }
 .confirm__modal {
-  position: relative;
+  /* display: flex; */
   font-size: 1.6rem;
   width: 50rem;
   position: fixed;
   border-radius: 3px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -723,6 +697,7 @@ a {
 .btn-group-modal {
   display: flex;
   border-radius: 0 0 3px 3px;
+
   background-color: #f9fafb;
   padding: 14px;
   justify-content: flex-end;
@@ -740,25 +715,13 @@ a {
   color: #f2efee;
   border-radius: 3px;
   font-weight: 700;
-  transition: all 0.3s;
 }
 
-.btn-group-modal .btn-cancel,
-.btn-group-modal .btn-ok {
+.btn-group-modal .btn-cancel {
   background-color: #e0e1e2;
   color: rgba(0, 0, 0, 0.6);
 }
-
-/* .btn-group-modal .btn-ok {
-  background-color: #fd9c83;
+.btn-group-modal .btn-ok {
+  background-color: #f48982;
   color: #fff;
-} */
-
-.btn-cancel:hover {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #ececec;
-}
-.btn-ok:hover {
-  background-color: #fd9c83;
-  color: rgba(255, 255, 255, 0.9);
 }
